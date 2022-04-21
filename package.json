@@ -2,6 +2,7 @@
   "name": "pulkovo",
   "version": "1.0.0",
   "dependencies": {
+    "react-unsplash-grid-gallery": "^1.0.1",
     "axios": "^0.25.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

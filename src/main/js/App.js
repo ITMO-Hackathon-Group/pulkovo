@@ -7,7 +7,15 @@ class App extends Component {
 
     render() {
         return (
-            <p>Hello react</p>
+            <div className="App">
+                <div className="container">
+                    <nav>Navbar</nav>
+                    <div id="content1">Content1</div>
+                    <div id="content2">Content2</div>
+                    <div id="content3">Content3</div>
+                    <footer>Footer</footer>
+                </div>
+            </div>
         );
     }
 }
