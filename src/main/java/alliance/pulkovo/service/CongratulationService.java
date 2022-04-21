@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class CongratulationService {
@@ -17,9 +17,13 @@ public class CongratulationService {
         this.congratulationRepository = congratulationRepository;
     }
 
-//    public Congratulation getRandom() {
-//        return congratulationRepository.find
-//    }
+    public List<Congratulation> getRandom(int n) {
+        List<Congratulation> list = congratulationRepository.findAll();
+        if (list.size() <= n) return list;
+        list = new ArrayList<>(list);
+        Collections.shuffle(list);
+        return list.subList(0, n);
+    }
 
     public List<Congratulation> getAll() {
         return congratulationRepository.findAll();
@@ -29,8 +33,8 @@ public class CongratulationService {
         Congratulation congratulation = new Congratulation(
                 congratulationDto.getAuthor(),
                 congratulationDto.getMessage(),
-                Timestamp.valueOf(LocalDateTime.now()));
-
+                Timestamp.valueOf(LocalDateTime.now())
+        );
         congratulationRepository.save(congratulation);
         return congratulation;
     }

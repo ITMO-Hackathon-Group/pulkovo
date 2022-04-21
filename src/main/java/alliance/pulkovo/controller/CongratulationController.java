@@ -24,4 +24,9 @@ public class CongratulationController {
     public Congratulation add(@RequestBody CongratulationDto congratulationDto) {
         return congratulationService.add(congratulationDto);
     }
+
+    @GetMapping("/congratulation/{n}")
+    public List<Congratulation> getRandom(@PathVariable int n) {
+        return congratulationService.getRandom(n);
+    }
 }
