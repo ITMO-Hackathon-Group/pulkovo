@@ -10,11 +10,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        TODO перенаправлять неваторизованные запросы домой, админка
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/", "/bundle/**", "/resources/**").permitAll()
-                    .anyRequest().authenticated();
+//                    .antMatchers("/", "/bundle/**", "/resources/**", "congratulation/**").permitAll()
+//                    .anyRequest().authenticated()
+                    .anyRequest().permitAll()
+                .and().formLogin()
+                    .loginPage("/").defaultSuccessUrl("/admin", true);
     }
 }
