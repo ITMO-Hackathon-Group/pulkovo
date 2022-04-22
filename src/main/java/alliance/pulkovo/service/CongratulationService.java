@@ -25,17 +25,39 @@ public class CongratulationService {
         return list.subList(0, n);
     }
 
+    public Congratulation get(Long n) {
+        return congratulationRepository.getById(n);
+    }
+
     public List<Congratulation> getAll() {
         return congratulationRepository.findAll();
     }
 
-    public Congratulation add(CongratulationDto congratulationDto) {
+    public Congratulation create(CongratulationDto congratulationDto) {
+        // TODO published режим
         Congratulation congratulation = new Congratulation(
                 congratulationDto.getAuthor(),
                 congratulationDto.getMessage(),
-                Timestamp.valueOf(LocalDateTime.now())
+                Timestamp.valueOf(LocalDateTime.now()),
+                true
         );
-        congratulationRepository.save(congratulation);
+        return congratulationRepository.save(congratulation);
+    }
+
+    public Congratulation update(Long n, CongratulationDto congratulationDto) {
+        Congratulation congratulation = congratulationRepository.getById(n);
+
+        congratulation.setMessage(congratulationDto.getMessage());
+        congratulation.setPublished(congratulationDto.isPublished());
+        congratulation.setAuthor(congratulationDto.getAuthor());
+        congratulation.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
+
+        return congratulationRepository.save(congratulation);
+    }
+
+    public Congratulation delete(Long n) {
+        Congratulation congratulation = congratulationRepository.getById(n);
+        congratulationRepository.deleteById(n);
         return congratulation;
     }
 }

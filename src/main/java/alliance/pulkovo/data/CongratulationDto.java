@@ -6,4 +6,5 @@ import lombok.Data;
 public class CongratulationDto {
     private final String author;
     private final String message;
+    private final boolean published;
 }

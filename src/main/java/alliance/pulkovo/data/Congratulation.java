@@ -15,10 +15,12 @@ public class Congratulation {
     private String author;
     private String message;
     private Timestamp timestamp;
+    private boolean published;
 
-    public Congratulation(String author, String message, Timestamp timestamp) {
+    public Congratulation(String author, String message, Timestamp timestamp, boolean published) {
         this.author = author;
         this.message = message;
         this.timestamp = timestamp;
+        this.published = published;
     }
 }

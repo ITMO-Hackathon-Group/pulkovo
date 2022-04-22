@@ -15,14 +15,30 @@ public class CongratulationController {
         this.congratulationService = congratulationService;
     }
 
-    @GetMapping("/congratulation/all")
+    @GetMapping("/api/congratulations")
     public List<Congratulation> getAll() {
         return congratulationService.getAll();
     }
 
-    @PostMapping("/congratulation")
-    public Congratulation add(@RequestBody CongratulationDto congratulationDto) {
-        return congratulationService.add(congratulationDto);
+    @PostMapping("/api/congratulations")
+    public Congratulation create(@RequestBody CongratulationDto congratulationDto) {
+        return congratulationService.create(congratulationDto);
+    }
+
+    @PutMapping("/api/congratulations/{n}")
+    public Congratulation update(@PathVariable Long n, @RequestBody CongratulationDto congratulationDto) {
+        return congratulationService.update(n, congratulationDto);
+    }
+
+    @GetMapping("/api/congratulations/{n}")
+    public Congratulation get(@PathVariable Long n) {
+        return congratulationService.get(n);
+    }
+
+    // TODO: only for admin role
+    @DeleteMapping("/api/congratulations/{n}")
+    public Congratulation delete(@PathVariable Long n) {
+        return congratulationService.delete(n);
     }
 
     @GetMapping("/congratulation/{n}")
