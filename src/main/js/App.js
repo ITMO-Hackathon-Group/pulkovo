@@ -1,17 +1,20 @@
 import React from 'react';
 import Form from "./Form";
 import Congratulation from "./Congratulation";
+import CongratulationContainer from "./CongratulationContainer";
 
-const congrat = {name: "Ivan", text: "Very good airport! Awesome staff!"}
-const congrat1 = {
+let congrats = [{name: "Ivan", text: "Very good airport! Awesome staff!"},
+    {
     name: "Gregory",
     text: "Very good airport! Awesome staff! Have been flying so much! I'm crazy! Thank you very much!"
-}
-const congrat3 = {
+}, {
     name: "Dmitrii",
     text: "Very good airport! Awesome staff! Have been flying so much! I'm crazy! Thank you very much! " +
         "Many many text! Many many text! Many many text! Many many text!  Many many text! Many many text! Many many text! Many many text!"
-}
+}, {
+        name: "Gregory",
+        text: "Very good airport! Awesome staff! Have been flying so much! I'm crazy! Thank you very much!"
+    }, {name: "Ivan", text: "Very good airport! Awesome staff!"}, {name: "Ivan", text: "Very good airport! Awesome staff!"}]
 
 const inputs = [{
     name: "username",
@@ -36,28 +39,13 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App"
+                 style={{backgroundImage: `url("https://www.telegraph.co.uk/content/dam/Travel/2016/September/art-of-airport-MAIN.jpg")`}}>
                 <div className="container">
                     <nav>
-                        <img src="https://toplogos.ru/images/thumbs/preview-logo-pulkovo.png"  alt="" />
+                        <img src="https://toplogos.ru/images/thumbs/preview-logo-pulkovo.png" alt=""/>
                     </nav>
-                    <div id="content1">
-                        <Congratulation {...congrat}/>
-                        <Congratulation {...congrat1}/>
-                        <Congratulation {...congrat}/>
-                    </div>
-                    <div id="content2">
-                        <Congratulation {...congrat3}/>
-                        <Congratulation {...congrat}/>
-                        <Congratulation {...congrat1}/>
-                        <Congratulation {...congrat3}/>
-                    </div>
-                    <div id="content3">
-                        <Congratulation {...congrat}/>
-                        <Congratulation {...congrat3}/>
-                        <Congratulation {...congrat}/>
-                        <Congratulation {...congrat1}/>
-                    </div>
+                    <CongratulationContainer {...{congrats: congrats}}/>
                     <footer>
                         <Form {...props} />
                     </footer>
