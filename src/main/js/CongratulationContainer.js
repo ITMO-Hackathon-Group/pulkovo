@@ -21,18 +21,18 @@ class CongratulationContainer extends React.Component {
             }
         }
         const congrats1 = c1.map(
-            ({name, text}, index) => (
-                <Congratulation {...{name, text}}/>
+            ({author, message}, index) => (
+                <Congratulation {...{author, message}}/>
             )
         )
         const congrats2 = c2.map(
-            ({name, text}, index) => (
-                <Congratulation {...{name, text}}/>
+            ({author, message}, index) => (
+                <Congratulation {...{author, message}}/>
             )
         )
         const congrats3 = c3.map(
-            ({name, text}, index) => (
-                <Congratulation {...{name, text}}/>
+            ({author, message}, index) => (
+                <Congratulation {...{author, message}}/>
             )
         )
         return (

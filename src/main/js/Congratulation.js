@@ -2,9 +2,9 @@ import React from 'react'
 
 class Congratulation extends React.Component {
 
-    colors = ["#FED6BC", "#FFFADD", "#DEF7FE", "#E7ECFF",
-        "#C3FBD8", "#FDEED9", "#F6FFF8", "#F6FFF8",
-        "#B5F2EA", "#C6D8FF"]
+    colors = ["#fd9856", "#ffef85", "#89e4fd", "#98abff",
+        "#48dc7c", "#ffc170", "#24ff4c",
+        "#f4aaff", "#788bd0"]
 
     constructor(props){
         super(props)
@@ -15,9 +15,23 @@ class Congratulation extends React.Component {
             <div className="congratulation" style={{
                 backgroundColor: this.colors[Math.floor(Math.random() * this.colors.length)]
             }}>
-                {this.props.text}
+                <p style={{
+                    fontSize: 14,
+                    color: "#000000",
+                    textAlign: "center",
+                }}>
+                    {this.props.message}
+                </p>
+
                 <br/>
-                {this.props.name}
+
+                <p style={{
+                    fontSize: 14,
+                    color: "#000000",
+                    textAlign: "center",
+                }}>
+                    {this.props.author}
+                </p>
             </div>
         )
     }

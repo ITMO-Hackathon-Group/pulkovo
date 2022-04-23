@@ -1,5 +1,5 @@
 function downloadCongratulations(){
-    return  fetch('/congratulation/all', {
+    return  fetch('/api/congratulations', {
         method: 'GET'
     });
 }
